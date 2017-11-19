@@ -13,7 +13,7 @@ TiddlyWikiPlugin.prototype.linkMissingThemes = function (cb) {
       return cb(err)
     }
 
-    console.log('linkMissingThemes.wikiInfo:', wikiInfo)
+    console.log('linkMissingThemes.wikiInfo:', wikiInfo.themes)
   })
 }
 
@@ -23,7 +23,7 @@ TiddlyWikiPlugin.prototype.linkMissingPlugins = function (cb) {
       return cb(err)
     }
 
-    console.log('linkMissingThemes.wikiInfo:', wikiInfo)
+    console.log('linkMissingThemes.wikiInfo:', wikiInfo.plugins)
   })
 }
 

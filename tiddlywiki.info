@@ -1,15 +1,16 @@
 {
-    "description": "Plugin edition",
-    "plugins": [
-	"ustuehler/component",
-	"ustuehler/caption"
-    ],
-    "themes": [
-	"tiddlywiki/vanilla"
-    ],
-    "build": {
-        "index": [
-	    "--output",".",
-	    "--rendertiddler","$:/core/save/all","index.html","text/plain"]
-    }
+  "description": "Plugin edition",
+  "plugins": [
+    "ustuehler/component",
+    "ustuehler/caption"
+  ],
+  "themes": [
+    "tiddlywiki/vanilla"
+  ],
+  "build": {
+    "index": [
+      "--output",".",
+      "--rendertiddler","$:/core/save/all","index.html","text/plain"
+    ]
+  }
 }
