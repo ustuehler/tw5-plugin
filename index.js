@@ -1,56 +1,15 @@
 #!/usr/bin/env node
 // This is invoked as a shell script by NPM
 
-const TIDDLYWIKI_INFO_FILE = 'tiddlywiki.info'
-
-var fs = require('fs')
-
-var TiddlyWikiPlugin = function () {}
-
-TiddlyWikiPlugin.prototype.linkMissingThemes = function (cb) {
-  this.readWikiInfo(function (err, wikiInfo) {
-    if (err) {
-      return cb(err)
-    }
-
-    console.log('linkMissingThemes.wikiInfo:', wikiInfo.themes)
-  })
-}
-
-TiddlyWikiPlugin.prototype.linkMissingPlugins = function (cb) {
-  this.readWikiInfo(function (err, wikiInfo) {
-    if (err) {
-      return cb(err)
-    }
-
-    console.log('linkMissingThemes.wikiInfo:', wikiInfo.plugins)
-  })
-}
-
-TiddlyWikiPlugin.prototype.readWikiInfo = function (cb) {
-  fs.readFile(TIDDLYWIKI_INFO_FILE, function (err, data) {
-    if (err) {
-      return cb(err)
-    }
-
-    var wikiInfo = JSON.parse(data)
-
-    cb(null, wikiInfo)
-  })
-}
-
-var plugin = new TiddlyWikiPlugin()
-
-// Resolve missing themes to node modules
-plugin.linkMissingThemes()
-
-// Resolve missing plugins to node modules
-plugin.linkMissingPlugins()
-
+var plugin = require('./plugins/ustuehler/core/modules/plugin.js').plugin
 var $tw = require('tiddlywiki/boot/boot.js').TiddlyWiki()
 
+// Resolve missing plugins and themes to node modules
+plugin.setPluginsEnv('TIDDLYWIKI_PLUGIN_PATH')
+plugin.setThemesEnv('TIDDLYWIKI_THEME_PATH')
+
 // Pass the command line arguments to the boot kernel
-$tw.boot.argv = ['.'].concat(process.argv.slice(2))
+$tw.boot.argv = ['editions/plugin'].concat(process.argv.slice(2))
 
 // Boot the TW5 app
 $tw.boot.boot()
