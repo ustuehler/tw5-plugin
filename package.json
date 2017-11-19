@@ -1,0 +1,28 @@
+{
+  "name": "tw5-plugin",
+  "version": "0.1.0",
+  "description": "TiddlyWiki Plugin Edition",
+  "main": "index.js",
+  "dependencies": {
+    "tiddlywiki": "^5.1.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "node index.js --build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ustuehler/tw5-plugin.git"
+  },
+  "keywords": [
+    "tiddlywiki",
+    "plugin"
+  ],
+  "author": "Uwe Stuehler",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ustuehler/tw5-plugin/issues"
+  },
+  "homepage": "https://github.com/ustuehler/tw5-plugin#readme"
+}

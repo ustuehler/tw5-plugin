@@ -1,0 +1,16 @@
+title: $:/plugins/ustuehler/core/usage
+
+<ol>
+  <li>
+
+Create a new plugin project.
+
+```bash
+mkdir -p new-plugin/plugins/group/new
+edit new-plugin/plugins/group/new/plugin.info
+edit new-plugin/tiddlywiki.info
+edit new-plugin/package.json
+```
+
+  </li>
+</ol>
