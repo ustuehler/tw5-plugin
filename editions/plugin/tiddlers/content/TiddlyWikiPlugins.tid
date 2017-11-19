@@ -1,4 +1,9 @@
 title: TiddlyWikiPlugins
 caption: TiddlyWiki Plugins
 
-<<list-links '[all[tiddlers]field:author[Uwe Stuehler]]'>>
+\define author() Uwe Stuehler
+\define authorURL() https://ustuehler.github.io
+
+Plugins created by <a target="_" href=<<authorURL>>><<author>></a>:
+
+<<list-links '[all[tiddlers]field:author<author>]'>>
