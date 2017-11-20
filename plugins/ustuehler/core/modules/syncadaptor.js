@@ -10,6 +10,8 @@ A promisified sync adaptor module base class
   var Component = require('$:/plugins/ustuehler/core/component.js').Component
 
   function SyncAdaptor (componentName, adaptorName, options) {
+    var self = this
+
     this.name = adaptorName
     this.wiki = options.wiki
 
