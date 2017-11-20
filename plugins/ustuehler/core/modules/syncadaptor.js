@@ -32,6 +32,9 @@ A promisified sync adaptor module base class
   SyncAdaptor.prototype.getStatus = function (callback) {
     var self = this
 
+    this.uploading = 0 // Number of tiddlers currently being uploaded or deleted
+    this.downloading = 0 // Number of tiddlers currently being downloaded
+
     this.getClientStatus()
       .then(function (values) {
         var isLoggedIn = values[0]
@@ -114,7 +117,8 @@ A promisified sync adaptor module base class
   }
 
   /*
-   * saveTiddlerStart registers an in-flight tiddler being uploaded
+   * saveTiddlerStart registers an in-flight tiddler being uploaded. This
+   * method is also called when a tiddler gets deleted.
    */
   SyncAdaptor.prototype.saveTiddlerStart = function (title) {
     console.log('saveTiddlerStart:', title)
@@ -125,7 +129,8 @@ A promisified sync adaptor module base class
   }
 
   /*
-   * saveTiddlerEnd marks an in-flight tiddler as uploaded or failed
+   * saveTiddlerEnd marks an in-flight tiddler as uploaded or failed. This
+   * method is also called when a tiddler gets deleted.
    */
   SyncAdaptor.prototype.saveTiddlerEnd = function (err, title) {
     console.log('saveTiddlerEnd:', title, err)
@@ -172,7 +177,7 @@ A promisified sync adaptor module base class
    * loadTiddlerEnd marks an in-flight tiddler as downloaded or failed
    */
   SyncAdaptor.prototype.loadTiddlerEnd = function (err, title) {
-    console.log('saveTiddlerEnd:', title, err)
+    console.log('loadTiddlerEnd:', title, err)
 
     this.downloading -= 1
 
