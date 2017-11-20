@@ -15,8 +15,9 @@ A promisified sync adaptor module base class
     this.name = adaptorName
     this.wiki = options.wiki
 
-    return Component.call(this, componentName).then(function () {
-      self.status.update(self.initialStatus())
+    return Component.call(this, componentName).then(function (value) {
+      self.status.update(initialStatus())
+      return value
     })
   }
 
@@ -226,7 +227,7 @@ A promisified sync adaptor module base class
     return this.uploading === 0 && this.downloading === 0
   }
 
-  SyncAdaptor.prototype.initialStatus = function () {
+  function initialStatus() {
     return {
       uploading: false,
       downloading: false,
