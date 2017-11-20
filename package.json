@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "node index.js --build",
+    "build": "hack/buildinfo && node index.js --build",
     "test": "echo \"Warning: no test specified\" && exit 0",
     "serve": "node index.js --server 8080"
   },
