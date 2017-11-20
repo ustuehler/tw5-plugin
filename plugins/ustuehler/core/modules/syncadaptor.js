@@ -219,7 +219,7 @@ A promisified sync adaptor module base class
   }
 
   SyncAdaptor.prototype.isIdle = function () {
-    return !(this.status.fields.uploading || this.status.fields.downloading)
+    return this.uploading === 0 && this.downloading === 0
   }
 
   SyncAdaptor.prototype.downloadingStatus = function () {
