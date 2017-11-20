@@ -16,7 +16,7 @@ promise.
 (function () {
   /* global $tw */
 
-  var Component = require('$:/plugins/ustuehler/component').Component
+  var Component = require('$:/plugins/ustuehler/core').Component
 
   var App = require('$:/plugins/ustuehler/firebase/app.js').App
   //var Database = require('$:/plugins/ustuehler/firebase/database.js').Database

@@ -7,15 +7,15 @@ Provides a tiddler data store interface above FirebaseDatabase or FirebaseStorag
 
 \*/
 (function () {
-  /* global $tw */
+  /* global $tw, Promise */
 
   // prefix for all tiddlers in the database, or in hte cloud storage bucket
-  const TIDDLERS_REF = '/tiddlers/'
+  var TIDDLERS_REF = '/tiddlers/'
 
   // field which marks a FirebaseTiddler as deleted
-  const DELETED_FIELD = 'x-firebase-deleted' // accepts "yes" or "no"
+  var DELETED_FIELD = 'x-firebase-deleted' // accepts "yes" or "no"
 
-  var Component = require('$:/plugins/ustuehler/component').Component
+  var Component = require('$:/plugins/ustuehler/core').Component
 
   var TiddlerStore = function (origin) {
     this.origin = origin
@@ -208,7 +208,7 @@ Provides a tiddler data store interface above FirebaseDatabase or FirebaseStorag
     }
 
     return TIDDLERS_REF + path + encodeURIComponent(title)
-  };
+  }
 
   /*
    * tiddlerTitle is the inverse operation of tiddlerPath

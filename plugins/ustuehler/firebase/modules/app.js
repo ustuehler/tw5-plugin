@@ -7,9 +7,9 @@ Firebase App component
 
 \*/
 (function () {
-  /* global $tw */
+  /* global $tw, Promise */
 
-  var Component = require('$:/plugins/ustuehler/component').Component
+  var Component = require('$:/plugins/ustuehler/core').Component
   var config = require('$:/plugins/ustuehler/firebase/config.js').config
 
   var App = function (index) {

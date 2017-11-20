@@ -8,7 +8,7 @@ Firebase plugin component index
 
 \*/
 (function () {
-  var Component = require('$:/plugins/ustuehler/component/index.js').Component
+  var Component = require('$:/plugins/ustuehler/core').Component
   var App = require('$:/plugins/ustuehler/firebase/lib/app.js').App
   var Database = require('$:/plugins/ustuehler/firebase/lib/database.js').Database
   var Storage = require('$:/plugins/ustuehler/firebase/lib/storage.js').Storage

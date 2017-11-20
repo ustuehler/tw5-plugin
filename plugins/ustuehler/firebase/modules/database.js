@@ -7,9 +7,9 @@ Firebase Database component
 
 \*/
 (function () {
-  /* global $tw */
+  /* global $tw, Promise */
 
-  var Component = require('$:/plugins/ustuehler/component').Component
+  var Component = require('$:/plugins/ustuehler/core').Component
   var TiddlerStore = require('$:/plugins/ustuehler/firebase/tiddler-store.js').TiddlerStore
 
   var Database = function (firebaseDatabase) {
@@ -107,7 +107,7 @@ Firebase Database component
           return Promise.resolve(pages)
         }
       })
-  };
+  }
 
   exports.Database = Database
 

@@ -7,16 +7,16 @@ FirebaseUI component
 
 \*/
 (function () {
-  /* global $tw */
+  /* global $tw, Promise */
 
-  var Component = require('$:/plugins/ustuehler/component').Component
+  var Component = require('$:/plugins/ustuehler/core').Component
 
-  const STATUS_USER_TIDDLER = '$:/status/OAuth/User'
-  const STATUS_PROVIDER_TIDDLER = '$:/status/OAuth/Provider'
+  var STATUS_USER_TIDDLER = '$:/status/OAuth/User'
+  var STATUS_PROVIDER_TIDDLER = '$:/status/OAuth/Provider'
 
-  const TEMP_ACCESS_TOKEN_TIDDLER = '$:/temp/OAuth/AccessToken'
+  var TEMP_ACCESS_TOKEN_TIDDLER = '$:/temp/OAuth/AccessToken'
 
-  const CURRENT_USER_TEMPLATE = '$:/plugins/ustuehler/firebase/ui/UserViewTemplate'
+  var CURRENT_USER_TEMPLATE = '$:/plugins/ustuehler/firebase/ui/UserViewTemplate'
 
   /*
    * FirebaseUI constructs a new authentication UI

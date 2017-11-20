@@ -7,7 +7,7 @@ Firebase Storage plugin component
 
 \*/
 (function () {
-  var Component = require('$:/plugins/ustuehler/component').Component
+  var Component = require('$:/plugins/ustuehler/core').Component
 
   var Storage = function (firebase) {
     this.storage = firebase.firebase.storage()
