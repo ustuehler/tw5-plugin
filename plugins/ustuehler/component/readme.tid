@@ -1,3 +1,0 @@
-title: $:/plugins/ustuehler/component/readme
-
-The ''component'' plugin is not useful by itself, but it is used by some of my other plugins to add "orderly initialisation" and status reporting to the plugin and its subcomponents.
