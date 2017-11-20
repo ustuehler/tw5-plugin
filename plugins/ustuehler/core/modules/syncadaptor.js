@@ -13,7 +13,9 @@ A promisified sync adaptor module base class
     this.name = adaptorName
     this.wiki = options.wiki
 
-    return Component.call(this, componentName)
+    return Component.call(this, componentName).then(function () {
+      self.status.update(self.initialStatus())
+    })
   }
 
   // Inherit from Component
@@ -220,6 +222,14 @@ A promisified sync adaptor module base class
 
   SyncAdaptor.prototype.isIdle = function () {
     return this.uploading === 0 && this.downloading === 0
+  }
+
+  SyncAdaptor.prototype.initialStatus = function () {
+    return {
+      uploading: false,
+      downloading: false,
+      icon: 'cloud_queue'
+    }
   }
 
   SyncAdaptor.prototype.downloadingStatus = function () {
