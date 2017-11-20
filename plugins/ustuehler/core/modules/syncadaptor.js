@@ -231,7 +231,7 @@ A promisified sync adaptor module base class
     return {
       uploading: false,
       downloading: false,
-      icon: 'cloud_queue'
+      icon: 'cloud'
     }
   }
 
