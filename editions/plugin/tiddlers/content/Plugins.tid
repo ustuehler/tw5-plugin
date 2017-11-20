@@ -1,5 +1,5 @@
 title: Plugins
-list: tw5-github
+list: github
 
 Featured plugins:
 
@@ -8,7 +8,7 @@ Featured plugins:
 <$set name="author" value={{package.json##author}}>
 <$set name="authorHomepage" value={{package.json##authorHomepage}}>
 
-All plugins authored by <a target="_" href=<<authorHomepage>>><<author>></a>:
+All plugins authored by <a target="_blank" href=<<authorHomepage>>><<author>></a>:
 
 <<list-links '[all[tiddlers]prefix[$:/plugins/]field:author<author>]'>>
 
