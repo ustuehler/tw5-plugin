@@ -10,9 +10,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "hack/buildinfo && node index.js --build",
+    "build": "hack/buildinfo && node index.js editions/plugin --build",
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "serve": "node index.js --server 8080"
+    "serve": "node index.js editions/plugin --server 8080",
+    "hack": "node index.js editions/hack --server 8080"
   },
   "repository": {
     "type": "git",
