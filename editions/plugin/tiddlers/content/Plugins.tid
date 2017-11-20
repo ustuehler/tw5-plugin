@@ -3,7 +3,11 @@ list: github
 
 Featured plugins:
 
-<<list-links '[list[]]'>>
+<ul>
+<$list filter="[list[]]">
+<li><a target="_blank" href={{!!url}}><$view field="caption"/></a></li>
+</$list>
+</ul>
 
 <$set name="author" value={{package.json##author}}>
 <$set name="authorHomepage" value={{package.json##authorHomepage}}>
