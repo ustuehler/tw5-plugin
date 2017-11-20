@@ -1,0 +1,18 @@
+caption: <<material-icon "cloud_upload">> {{$:/language/Buttons/GitHubWriteFile/Caption}}
+created: 20171108191956785
+description: {{$:/language/Buttons/DatabaseSyncTiddler/Hint}}
+list-after: $:/themes/ustuehler/material/ui/Buttons/clone
+modified: 20171108193314100
+tags: $:/tags/ViewToolbar/BottomLeft
+title: $:/plugins/ustuehler/firebase/ui/Buttons/database-sync-tiddler
+type: text/vnd.tiddlywiki
+
+<$button tooltip={{$:/language/Buttons/DatabaseSyncTiddler/Hint}} aria-label={{$:/language/Buttons/DatabaseSyncTiddler/Caption}} class=<<tv-config-toolbar-class>>>
+<$action-firebase-database $action="sync" $snackbar="yes"/>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+<<material-icon "cloud_upload">>
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text={{$:/language/Buttons/DatabaseSyncTiddler/Caption}}/></span>
+</$list>
+</$button>

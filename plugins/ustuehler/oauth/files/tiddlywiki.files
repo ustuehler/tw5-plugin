@@ -1,0 +1,32 @@
+{
+	"tiddlers": [
+		{
+			"file": "index.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "simple-oauth2.js",
+				"module-type": "library"
+			}
+		},{
+			"file": "oauth-open.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "oauth-open.js",
+				"module-type": "library"
+			}
+		},{
+			"file": "jsonp.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "jsonp.js",
+				"module-type": "library"
+			}
+		},{
+			"file": "LICENSE",
+			"fields": {
+				"type": "text/plain",
+				"title": "$:/plugins/ustuehler/oauth/license"
+			}
+		}
+	]
+}

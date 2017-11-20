@@ -1,0 +1,25 @@
+{
+	"tiddlers": [
+		{
+			"file": "url.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "url/index.js",
+				"module-type": "library"
+			}
+		},{
+			"file": "util.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "url/util.js",
+				"module-type": "library"
+			}
+		},{
+			"file": "LICENSE",
+			"fields": {
+				"type": "text/plain",
+				"title": "$:/plugins/ustuehler/url/license"
+			}
+		}
+	]
+}

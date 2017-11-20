@@ -1,0 +1,11 @@
+created: 20171111234217305
+modified: 20171112130529342
+title: $:/plugins/ustuehler/component/status
+type: text/vnd.tiddlywiki
+
+This tiddler shows the status of all separately identified plugin components that have been activated in this TiddlyWiki since it was loaded. If there is nothing below this paragraph, then there is no other plugin currently activated which uses the `Component` class from this plugin.
+
+<$list filter="[prefix[$:/status/]has[ok]]">
+<<currentTiddler>>:
+<$transclude/>
+</$list>

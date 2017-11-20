@@ -1,32 +1,32 @@
 {
-  "name": "tw5-github",
+  "name": "tw5-plugin",
   "version": "0.1.0",
-  "description": "TiddlyWiki GitHub Edition",
+  "description": "TiddlyWiki Plugin Edition",
   "main": "index.js",
   "dependencies": {
+    "glob": "^7.1.2",
     "tiddlywiki": "^5.1.15",
-    "tw5-material": "git+https://github.com/ustuehler/tw5-material.git",
-    "tw5-plugin": "git+https://github.com/ustuehler/tw5-plugin.git"
+    "tw5-material": "git+https://github.com/ustuehler/tw5-material.git"
   },
   "devDependencies": {},
   "scripts": {
-    "build": "node index.js editions/github --build",
-    "test": "node index.js editions/test --build 2>&1 | tee test.out; ! grep -q ^Failures: test.out"
+    "build": "hack/buildinfo && node index.js --build",
+    "test": "echo \"Warning: no test specified\" && exit 0",
+    "serve": "node index.js --server 8080"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ustuehler/tw5-github.git"
+    "url": "git+https://github.com/ustuehler/tw5-plugin.git"
   },
   "keywords": [
-    "github",
     "tiddlywiki",
-    "plugin",
-    "syncadaptor"
+    "plugin"
   ],
   "author": "Uwe Stuehler",
+  "authorHomepage": "https://ustuehler.github.io",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/ustuehler/tw5-github/issues"
+    "url": "https://github.com/ustuehler/tw5-plugin/issues"
   },
-  "homepage": "https://github.com/ustuehler/tw5-github#readme"
+  "homepage": "https://ustuehler.github.io/tw5-plugin"
 }
