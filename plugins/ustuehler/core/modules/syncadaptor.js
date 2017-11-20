@@ -93,31 +93,92 @@ A promisified sync adaptor module base class
    * Save a tiddler and invoke the callback with (err,adaptorInfo,revision)
    */
   SyncAdaptor.prototype.saveTiddler = function (tiddler, callback) {
-    console.log('saveTiddler', tiddler)
+    var self = this
+    var title = tiddler.fields.title
+
+    console.log('saveTiddler', title, tiddler)
+
+    this.saveTiddlerStart(title)
     this.saveTiddlerInStore(tiddler)
       .then(function (value) {
         var adaptorInfo = value[0]
         var revision = value[1]
 
+        self.saveTiddlerEnd(null, title)
         callback(null, adaptorInfo, revision)
       })
       .catch(function (err) {
+        self.saveTiddlerEnd(err, title)
         callback(err)
       })
+  }
+
+  /*
+   * saveTiddlerStart registers an in-flight tiddler being uploaded
+   */
+  SyncAdaptor.prototype.saveTiddlerStart = function (title) {
+    console.log('saveTiddlerStart:', title)
+
+    this.uploading += 1
+
+    this.status.update(this.uploadingStatus())
+  }
+
+  /*
+   * saveTiddlerEnd marks an in-flight tiddler as uploaded or failed
+   */
+  SyncAdaptor.prototype.saveTiddlerEnd = function (err, title) {
+    console.log('saveTiddlerEnd:', title, err)
+
+    this.uploading -= 1
+
+    if (this.uploading < 1) {
+      this.status.update(this.notUploadingStatus())
+    }
   }
 
   /*
    * Load a tiddler and invoke the callback with (err,tiddlerFields)
    */
   SyncAdaptor.prototype.loadTiddler = function (title, callback) {
+    var self = this
+
     console.log('loadTiddler', title)
+
+    this.loadTiddlerStart(title)
     this.loadTiddlerFromStore(title)
       .then(function (tiddler) {
+        self.loadTiddlerEnd(null, title)
         callback(null, tiddler)
       })
       .catch(function (err) {
+        self.loadTiddlerEnd(err, title)
         callback(err)
       })
+  }
+
+  /*
+   * loadTiddlerStart registers an in-flight tiddler being downloaded
+   */
+  SyncAdaptor.prototype.loadTiddlerStart = function (title) {
+    console.log('loadTiddlerStart:', title)
+
+    this.downloading += 1
+
+    this.status.update(this.downloadingStatus())
+  }
+
+  /*
+   * loadTiddlerEnd marks an in-flight tiddler as downloaded or failed
+   */
+  SyncAdaptor.prototype.loadTiddlerEnd = function (err, title) {
+    console.log('saveTiddlerEnd:', title, err)
+
+    this.downloading -= 1
+
+    if (this.downloading < 1) {
+      this.status.update(this.notDownloadingStatus())
+    }
   }
 
   /*
@@ -128,6 +189,7 @@ A promisified sync adaptor module base class
   SyncAdaptor.prototype.deleteTiddler = function (title, callback, options) {
     console.log('deleteTiddler', title, options)
 
+    var self = this
     var adaptorInfo = options.tiddlerInfo.adaptorInfo
 
     // If we have an empty adaptorInfo it means that the tiddler hasn't been seen by the server, so we don't need to delete it
@@ -139,13 +201,48 @@ A promisified sync adaptor module base class
     */
 
     // Issue request to delete the tiddler
+    this.saveTiddlerStart(title)
     this.deleteTiddlerFromStore(title, adaptorInfo)
       .then(function () {
+        self.saveTiddlerEnd(null, title)
         callback(null)
       })
       .catch(function (err) {
+        self.saveTiddlerEnd(err, title)
         callback(err)
       })
+  }
+
+  SyncAdaptor.prototype.isIdle = function () {
+    return !(this.status.fields.uploading || this.status.fields.downloading)
+  }
+
+  SyncAdaptor.prototype.downloadingStatus = function () {
+    return {
+      downloading: true,
+      icon: 'cloud_download'
+    }
+  }
+
+  SyncAdaptor.prototype.notDownloadingStatus = function () {
+    return {
+      downloading: false,
+      icon: this.isIdle() ? 'cloud_done' : this.status.fields.icon
+    }
+  }
+
+  SyncAdaptor.prototype.uploadingStatus = function () {
+    return {
+      uploading: true,
+      icon: 'cloud_upload'
+    }
+  }
+
+  SyncAdaptor.prototype.notUploadingStatus = function () {
+    return {
+      uploading: false,
+      icon: this.isIdle() ? 'cloud_done' : this.status.fields.icon
+    }
   }
 
   exports.SyncAdaptor = SyncAdaptor
