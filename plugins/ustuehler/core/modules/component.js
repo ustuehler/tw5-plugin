@@ -8,7 +8,7 @@ initialisation and status reporting
 
 \*/
 (function () {
-  /* global $tw */
+  /* global $tw, Promise */
 
   var getWindowProperty = require('$:/plugins/ustuehler/core/utils.js').getWindowProperty
   var Observable = require('$:/plugins/ustuehler/core/observable.js').Observable
