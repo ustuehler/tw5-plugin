@@ -1,5 +1,19 @@
-# Created by "npm install"
-/node_modules/
+# Vim swap files
+.*.sw?
 
-# Created by "npm build"
+# Creted by npm(1)
+/node_modules/
+/npm-debug.log
+
+# Created by "tiddlywiki --build"
+/editions/*/output/
+
+# Created by the build script
 /index.html
+/hack.html
+
+# $:/StoryList
+$__StoryList.tid
+
+# Draft tiddlers
+Draft of *
