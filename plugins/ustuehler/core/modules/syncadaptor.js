@@ -40,7 +40,7 @@ A promisified sync adaptor module base class
     this.uploading = 0 // Number of tiddlers currently being uploaded or deleted
     this.downloading = 0 // Number of tiddlers currently being downloaded
 
-    this.getClientStatus()
+    this.getUser()
       .then(function (values) {
         var isLoggedIn = values[0]
         var username = values[1]
