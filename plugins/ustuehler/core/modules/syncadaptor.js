@@ -97,6 +97,7 @@ A promisified sync adaptor module base class
       })
       .catch(function (err) {
         self.loadTiddlerEnd(err, skinnyTiddlersTitle)
+        console.log('SyncAdaptor.getSkinnyTiddlers: err:', err)
         callback(err)
       })
   }
@@ -157,7 +158,7 @@ A promisified sync adaptor module base class
   SyncAdaptor.prototype.loadTiddler = function (title, callback) {
     var self = this
 
-    console.log('loadTiddler', title)
+    console.debug('loadTiddler', title)
 
     this.loadTiddlerStart(title)
     this.loadTiddlerFromStore(title)
@@ -175,7 +176,7 @@ A promisified sync adaptor module base class
    * loadTiddlerStart registers an in-flight tiddler being downloaded
    */
   SyncAdaptor.prototype.loadTiddlerStart = function (title) {
-    console.log('loadTiddlerStart:', title)
+    console.debug('loadTiddlerStart:', title)
 
     this.downloading += 1
 
@@ -186,7 +187,7 @@ A promisified sync adaptor module base class
    * loadTiddlerEnd marks an in-flight tiddler as downloaded or failed
    */
   SyncAdaptor.prototype.loadTiddlerEnd = function (err, title) {
-    console.log('loadTiddlerEnd:', title, err)
+    console.debug('loadTiddlerEnd:', title, err)
 
     this.downloading -= 1
 
