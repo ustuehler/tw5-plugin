@@ -85,14 +85,18 @@ A promisified sync adaptor module base class
    * Get an array of skinny tiddler fields from the server
    */
   SyncAdaptor.prototype.getSkinnyTiddlers = function (callback) {
+    var skinnyTiddlersTitle = '$:/status/' + this.componentName + '/SkinnyTiddlers' // XXX
     var self = this
 
+    this.loadTiddlerStart(skinnyTiddlersTitle)
     this.getSkinnyTiddlersFromStore()
       .then(function (tiddlers) {
         console.log(self.componentName + '.getSkinnyTiddlers:', tiddlers)
+        self.loadTiddlerEnd(null, skinnyTiddlersTitle)
         callback(null, tiddlers)
       })
       .catch(function (err) {
+        self.loadTiddlerEnd(err, skinnyTiddlersTitle)
         callback(err)
       })
   }
