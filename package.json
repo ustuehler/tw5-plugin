@@ -1,10 +1,11 @@
 {
   "name": "tw5-plugin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "TiddlyWiki Plugin Edition",
   "main": "index.js",
   "dependencies": {
     "glob": "^7.1.2",
+    "nodemon": "^1.12.1",
     "tiddlywiki": "^5.1.15",
     "tw5-material": "git+https://github.com/ustuehler/tw5-material.git"
   },
@@ -12,8 +13,8 @@
   "scripts": {
     "build": "hack/buildinfo && node index.js editions/plugin --build && node index.js editions/hack --build",
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "serve": "node index.js editions/plugin --server 8080",
-    "hack": "node index.js editions/server --server 8080"
+    "server": "nodemon index.js editions/plugin --server 8080",
+    "hack": "nodemon index.js editions/server --server 8080"
   },
   "repository": {
     "type": "git",

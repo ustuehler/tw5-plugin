@@ -1,0 +1,8 @@
+{
+	"title": "$:/plugins/ustuehler/usecase",
+	"version": "0.1.0",
+	"core-version": ">=5.1.14",
+	"author": "Uwe Stuehler",
+	"description": "Templates for Use Case modelling",
+	"list": "readme usage license"
+}

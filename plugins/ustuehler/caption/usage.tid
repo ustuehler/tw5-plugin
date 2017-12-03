@@ -1,0 +1,5 @@
+title: $:/plugins/ustuehler/caption/usage
+
+The plugin automatically replaces the link text of WikiTitle references with the target tiddler's caption, if it has one. This will only work for tiddlers which are initially loaded, not for lazy-loaded tiddlers.
+
+For a more consistent approach, use [[macros|$:/plugins/ustuehler/caption/macros]].
