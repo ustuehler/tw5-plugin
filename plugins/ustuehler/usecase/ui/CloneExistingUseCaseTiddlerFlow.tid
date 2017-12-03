@@ -1,2 +1,8 @@
 title: CloneExistingUseCaseTiddlerFlow
 tags: DescribeNewUseCase
+
+<$set name="primaryActor" value=<<primaryActor>> emptyValue="TiddlyWikiUser">
+
+# The <<primaryActor>> clones an existing UseCaseTiddler and changes at least the `title` field to make it unique.
+
+</$set>

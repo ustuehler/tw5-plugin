@@ -1,2 +1,8 @@
 title: CreateNewUseCaseTiddlerFlow
 tags: DescribeNewUseCase
+
+<$set name="primaryActor" value=<<primaryActor>> emptyValue="TiddlyWikiUser">
+
+# The <<primaryActor>> creates a new tiddler with the required fields to form a valid UseCaseTiddler.
+
+</$set>
