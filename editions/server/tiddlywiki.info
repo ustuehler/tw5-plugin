@@ -2,6 +2,8 @@
   "description": "Plugin development edition",
   "plugins": [
     "tiddlywiki/github-fork-ribbon",
+    "tiddlywiki/filesystem",
+    "tiddlywiki/tiddlyweb",
     "ustuehler/caption",
     "ustuehler/mdc",
     "ustuehler/mdc-web",
