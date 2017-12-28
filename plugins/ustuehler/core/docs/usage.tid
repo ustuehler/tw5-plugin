@@ -1,7 +1,7 @@
 title: $:/plugins/ustuehler/core/usage
 
 <ol>
-  <li>
+<li>
 
 Create a new plugin project.
 
@@ -12,5 +12,18 @@ edit new-plugin/tiddlywiki.info
 edit new-plugin/package.json
 ```
 
-  </li>
+</li>
+<li>
+
+Optionally add plugin doctor somwhere in a documentation tiddler belonging to your plugin. This will show an error message such as
+
+if the [[core|$:/plugins/ustuehler/core]] plugin is not installed, and also diagnose other common issues.
+
+; Example: $:/plugins/group/new/readme.tid
+
+```
+<$plugin-doctor/>
+```
+
+</li>
 </ol>
