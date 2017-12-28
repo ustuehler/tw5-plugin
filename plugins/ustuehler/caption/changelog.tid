@@ -1,0 +1,12 @@
+title: $:/plugins/ustuehler/caption/changelog
+caption: Caption Plugin
+
+Drag the icon into another ~TiddlyWiki to install this plugin.
+
+<$link to="$:/plugins/ustuehler/caption"><<material-icon "extension">></$link>
+
+<$list filter="[prefix[caption/v]!sort[released]limit[1]]">
+
+<$macrocall $name="tabs" tabsList="[prefix[caption/v]!sort[released]]" default={{!!title}} class="tc-vertical" template="ReleaseTemplate" />
+
+</$list>

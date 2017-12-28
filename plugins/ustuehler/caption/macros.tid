@@ -1,0 +1,57 @@
+title: $:/plugins/ustuehler/caption/macros
+tags: $:/tags/Macro
+
+\define caption(variable:"currentTiddler")
+<$list variable="title" filter="[<$variable$>]">
+<$list variable="caption" filter="[<$variable$>has[caption]get[caption]]" emptyMessage="""<$text text=<<title>>/>""">
+<$text text=<<caption>>/>
+</$list>
+</$list>
+\end
+\define captionLink(variable:"currentTiddler")
+<$list variable="to" filter="[<$variable$>]">
+<$link to=<<to>>><<caption variable:"$variable$">></$link>
+</$list>
+\end
+\define captionText(variable:"currentTiddler")
+<<caption variable:"$variable$">>
+\end
+
+! Examples
+
+!! caption
+
+```
+//''<<caption>>''//
+```
+
+Renders as: //''<<caption>>''//
+
+!! captionLink
+
+```
+<<captionLink>>
+```
+
+Renders as: <<captionLink>>
+
+```
+<$set name="v" value="UseCaseTemplate">>
+<<captionLink variable:"v">>
+</$set>
+```
+
+Renders as:
+<$set name="v" value="UseCaseTemplate">
+<<captionLink variable:"v">>
+</$set>
+
+!! captionText
+
+```
+<<captionText>>
+```
+
+Renders as: <<captionText>>
+
+''Note:'' ''captionText'' is an alias for ''caption'' and should render the same way.

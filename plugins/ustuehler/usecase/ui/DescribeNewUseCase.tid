@@ -1,0 +1,10 @@
+title: DescribeNewUseCase
+caption: Describe New Use Case
+actors: TiddlyWikiUser TiddlyWikiApp
+basic-flow: CreateNewUseCaseTiddlerFlow
+alternate-flows: CloneExistingUseCaseTiddlerFlow
+description: The <<primaryActor>> can describe a new UseCase in TiddlyWikiApp by editing one or more tiddlers. The ~UseCase itself will be represented by a UseCaseTiddler.
+post-conditions: : No noteworthy postconditions, other than that there are new tiddlers created or updated in the process.
+pre-conditions: : No particular preconditions.
+
+{{||UseCaseTemplate}}

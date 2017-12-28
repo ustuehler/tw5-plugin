@@ -1,0 +1,6 @@
+title: $:/plugins/ustuehler/usecase/readme
+
+This plugin adds a [[template|UseCaseTemplate]] and some other shadow tiddlers to describe [[use cases in tiddlers|UseCaseTiddler]]. The latest version of this plugin can be obtained from my [[plugin library|https://ustuehler.github.io/tw5-plugin]].
+
+; Dependencies
+: $:/plugins/ustuehler/caption

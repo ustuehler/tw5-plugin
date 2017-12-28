@@ -1,0 +1,6 @@
+created: 20171112135754411
+modified: 20171112135755653
+title: $:/plugins/ustuehler/firebase/ui/AuthContainer
+type: text/vnd.tiddlywiki
+
+<$firebaseui-auth-container/>

@@ -1,0 +1,8 @@
+{
+	"title": "$:/plugins/ustuehler/core",
+	"version": "0.1.0",
+	"core-version": ">=5.1.14",
+	"author": "Uwe Stuehler",
+	"description": "TiddlyWiki5 core extension classes",
+	"list": "readme usage license"
+}

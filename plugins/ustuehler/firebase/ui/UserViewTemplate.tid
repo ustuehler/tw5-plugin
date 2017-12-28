@@ -1,0 +1,10 @@
+title: $:/plugins/ustuehler/firebase/UserViewTemplate
+
+|!UID |{{$:/status/OAuth/User!!uid}} |
+|!Display Name |{{$:/status/OAuth/User!!display-name}} |
+|!Email Address |{{$:/status/OAuth/User!!email}} |
+|!Email Verified |{{$:/status/OAuth/User!!email-verified}} |
+|!Phone Number |{{$:/status/OAuth/User!!phone-number}} |
+|!Photo URL |{{$:/status/OAuth/User!!photo-url}} |
+|!Access Token |$:/temp/OAuth/AccessToken |
+|!Provider Data |$:/status/OAuth/Provider |

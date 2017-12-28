@@ -1,0 +1,29 @@
+{
+  "description": "Plugin development edition",
+  "plugins": [
+    "tiddlywiki/github-fork-ribbon",
+    "ustuehler/caption",
+    "ustuehler/mdc",
+    "ustuehler/mdc-web",
+    "ustuehler/mdc-web-cdn",
+    "ustuehler/muuri",
+    "ustuehler/core",
+    "ustuehler/github",
+    "ustuehler/usecase"
+  ],
+  "themes": [
+    "ustuehler/material"
+  ],
+  "includeWikis": {
+    "path": "../plugin"
+  },
+  "build": {
+    "index": [
+      "--output",".",
+      "--rendertiddler","$:/core/save/all","hack.html","text/plain"
+    ]
+  },
+  "config": {
+    "retain-original-tiddler-path": true
+  }
+}

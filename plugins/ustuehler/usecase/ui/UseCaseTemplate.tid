@@ -1,0 +1,107 @@
+title: UseCaseTemplate
+caption: Use Case Template
+actors: TiddlyWikiUser TiddlyWikiApp
+basic-flow: CreateNewUseCaseTiddlerFlow
+description: The <<primaryActor>> can describe a new UseCase in a TiddlyWikiApp by editing one or more tiddlers. The ~UseCase itself will be represented by a UseCaseTiddler, which may transclude other tiddlers referenced in its fields.
+post-conditions: : Describe noteworthy postconditions.
+pre-conditions: : Describe any preconditions for this use case.
+
+\define warning(text:"")
+<span style="color: red;">$text$</span>
+\end
+\define allActors()
+[list[!!actors]]
+\end
+\define allAlternateFlows()
+[list[!!alternate-flows]]
+\end
+\define allExceptionFlows()
+[list[!!exception-flows]]
+\end
+\define firstActor()
+$(allActors)$ +[limit[1]]
+\end
+\define otherActors()
+$(allActors)$ +[rest[]]
+\end
+\define firstAlternateFlow()
+$(allAlternateFlows)$ +[limit[1]]
+\end
+\define firstExceptionFlow()
+$(allExceptionFlows)$ +[limit[1]]
+\end
+\define getBasicFlow()
+[<currentTiddler>get[basic-flow]]
+\end
+\define getPreConditions()
+[<currentTiddler>get[pre-conditions]]
+\end
+\define getPostConditions()
+[<currentTiddler>get[post-conditions]]
+\end
+\define missingPrimaryActor()
+<<warning "The `actors` list field of $(currentTiddler)$ is empty or unset.">>
+\end
+\define missingBasicFlow()
+<<warning "The `basic-flow` field of $(currentTiddler)$ is empty or unset. It should point to the UseCaseFlowTiddler that describes the basic successful execution path for this use case.">>
+\end
+
+<$list variable="primaryActor" filter=<<firstActor>> emptyMessage=<<missingPrimaryActor>>>
+<$list variable="basicFlow" filter=<<getBasicFlow>> emptyMessage=<<missingBasicFlow>>>
+
+{{!!description}}
+
+<dl><dt>Actors</dt></dl>
+<ul>
+<li><<captionLink variable:primaryActor>> (Primary Actor)</li>
+<$list filter=<<otherActors>>>
+<li><<captionLink>></li>
+</$list>
+</ul>
+
+<$list variable="" filter=<<getPreConditions>>>
+
+<dl><dt>Preconditions</dt></dl>
+
+{{!!pre-conditions}}
+
+</$list>
+
+; Basic Flow
+
+<$transclude tiddler=<<basicFlow>> mode="block"/>
+
+<$list variable="" filter=<<firstAlternateFlow>>>
+
+<dl><dt>Alternate Flows</dt></dl>
+<ul><$list filter=<<allAlternateFlows>>><li><<currentTiddler>></li></$list></ul>
+
+</$list>
+
+<$list variable="" filter=<<firstExceptionFlow>>>
+
+<dl>
+<dt>Exception Flows</dt>
+<$list filter=<<allExceptionFlows>>>
+<dd><<currentTiddler>></dd>
+</$list>
+</dl>
+
+</$list>
+
+<$list variable="" filter=<<getPostConditions>>>
+
+<dl><dt>Post Conditions</dt></dl>
+
+{{!!post-conditions}}
+
+</$list>
+
+<<hint """
+
+''<$text text="$(currentTiddler)$"/>'' is a UseCaseTiddler. See [[UseCase]] for a general discussion of what use cases are, and how to write them.
+
+""">>
+
+</$list>
+</$list>

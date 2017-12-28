@@ -1,0 +1,17 @@
+title: $:/plugins/ustuehler/firebase/rules/database
+type: application/json
+
+{
+  "rules": {
+    "tiddlers": {
+			"content": {
+				".read": "auth.provider == 'github.com'",
+				".write": "auth.provider == 'github.com'"
+			},
+			"system": {
+				".read": "auth.provider == 'github.com'",
+				".write": "auth.provider == 'github.com'"
+			}
+    }
+  }
+}

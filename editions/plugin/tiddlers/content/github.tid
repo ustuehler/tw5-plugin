@@ -1,0 +1,6 @@
+title: github
+caption: GitHub Edition
+url: https://ustuehler.github.io/tw5-github
+link: <a target="_blank" href={{!!url}}>{{!!caption}}</a>
+
+{{!!url}}
