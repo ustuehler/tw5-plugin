@@ -1,7 +1,11 @@
+# JetBrains IDEs
+/.idea/*
+!/.idea/codeStyles
+
 # Vim swap files
 .*.sw?
 
-# Creted by npm(1)
+# Created by npm(1)
 /node_modules/
 /npm-debug.log
 
